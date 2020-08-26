@@ -39,14 +39,23 @@ public class YatzyGame {
 
         }
 
-        if(category == YatzyCategory.FOUR_OF_A_KIND){ //Trenger hjelp
+        if(category == YatzyCategory.FOUR_OF_A_KIND){
 
             for(int value = frequencies.length - 1; value >= 0; value--){
-                if(frequencies[value] == 3){
-                    return value * 3;
+                if(frequencies[value] == 4){
+                    return value * 4;
                 }
             }
 
+        }
+
+        if(category == YatzyCategory.YATZY){
+
+            for(int value = frequencies.length - 1; value >= 0; value--){
+                if(frequencies[value] == 4){
+                    return value * 4;
+                }
+            }
         }
 
         if(category == YatzyCategory.ONES){

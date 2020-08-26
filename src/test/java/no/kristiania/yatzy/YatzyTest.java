@@ -45,6 +45,11 @@ public class YatzyTest {
         assertEquals(20, yatzyGame.score(YatzyCategory.FOUR_OF_A_KIND, new int[] {5, 5, 6, 5, 5}));
     }
 
+    @Test
+    void shouldScoreYatzy(){
+        assertEquals(50, yatzyGame.score(YatzyCategory.YATZY, new int[] {6, 6, 6, 6, 6}));
+    }
+
 
 
 
