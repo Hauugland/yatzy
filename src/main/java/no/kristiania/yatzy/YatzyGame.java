@@ -1,5 +1,7 @@
 package no.kristiania.yatzy;
 
+import java.util.Arrays;
+
 public class YatzyGame {
 
     public int score(YatzyCategory category, int[] dice) {
@@ -55,6 +57,24 @@ public class YatzyGame {
                 if(frequencies[value] == 5){
                     return 50;
                 }
+            }
+        }
+
+        if(category == YatzyCategory.SMALL_STRAIGHT){
+            int temp;
+            int[] smallStraight = {1,2,3,4,5};
+            for (int i = 0; i < dice.length ; i++) {
+                for (int j = i + 1; j < dice.length ; j++) {
+                    if(dice[i] > dice[j]){
+                        temp = dice[i];
+                        dice[i] = dice[j];
+                        dice[j] = temp;
+                    }
+                }
+            }
+
+            if(Arrays.equals(dice,smallStraight)){
+                return 15;
             }
         }
 
