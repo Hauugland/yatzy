@@ -52,8 +52,8 @@ public class YatzyGame {
         if(category == YatzyCategory.YATZY){
 
             for(int value = frequencies.length - 1; value >= 0; value--){
-                if(frequencies[value] == 4){
-                    return value * 4;
+                if(frequencies[value] == 5){
+                    return 50;
                 }
             }
         }

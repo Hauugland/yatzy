@@ -48,6 +48,12 @@ public class YatzyTest {
     @Test
     void shouldScoreYatzy(){
         assertEquals(50, yatzyGame.score(YatzyCategory.YATZY, new int[] {6, 6, 6, 6, 6}));
+        assertEquals(50, yatzyGame.score(YatzyCategory.YATZY, new int[] {1, 1, 1, 1, 1}));
+    }
+
+    @Test
+    void shouldScoreSmallStraight(){
+        assertEquals(15, yatzyGame.score(YatzyCategory.SMALL_STRAIGHT, new int[] {3, 5, 1, 4, 2}));
     }
 
 
