@@ -21,6 +21,12 @@ public class YatzyTest {
     }
 
     @Test
+    void shouldScoreThrees(){
+        assertEquals(6, yatzyGame.score(YatzyCategory.THREES, new int[] {3, 4, 3, 6, 1}));
+        assertEquals(9, yatzyGame.score(YatzyCategory.THREES, new int[] {6, 3, 1, 3, 3}));
+    }
+
+    @Test
     void shouldScorePair(){
         assertEquals(10, yatzyGame.score(YatzyCategory.PAIR, new int[] {1, 3, 5, 5, 2}));
         assertEquals(12, yatzyGame.score(YatzyCategory.PAIR, new int[] {1, 3, 6, 6, 2}));
@@ -66,8 +72,16 @@ public class YatzyTest {
     @Test
     void shouldScoreFullHouse(){
         assertEquals(19, yatzyGame.score(YatzyCategory.FULL_HOUSE, new int[] {3, 5, 3, 3, 5}));
-        assertEquals(20, yatzyGame.score(YatzyCategory.FULL_HOUSE, new int[] {6, 2, 2, 2, 6}));
+        assertEquals(18, yatzyGame.score(YatzyCategory.FULL_HOUSE, new int[] {6, 2, 2, 2, 6}));
     }
+
+    @Test
+    void shouldScoreChance(){
+        assertEquals(20, yatzyGame.score(YatzyCategory.CHANCE, new int[] {4, 5, 3, 3, 5}));
+        assertEquals(28, yatzyGame.score(YatzyCategory.CHANCE, new int[] {6, 4, 6, 6, 6}));
+    }
+
+
 
 
 

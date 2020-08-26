@@ -96,12 +96,36 @@ public class YatzyGame {
             }
         }
 
+        if(category == YatzyCategory.FULL_HOUSE){
+
+            for(int value = frequencies.length - 1; value >= 0; value--){
+                if(frequencies[value] == 3){
+                    result += value * 3;
+                }
+            }
+            for(int value = frequencies.length - 1; value >= 0; value--){
+                if(frequencies[value] == 2){
+                    result += value * 2;
+                }
+            }
+        }
+
+        if(category == YatzyCategory.CHANCE){
+            for (int i = 0; i < dice.length; i++) {
+                result += dice[i];
+            }
+        }
+
         if(category == YatzyCategory.ONES){
             return frequencies[1];
         }
 
         if(category == YatzyCategory.TWOS ){
             return frequencies[2] * 2;
+        }
+
+        if(category == YatzyCategory.THREES){
+
         }
 
         return result;
