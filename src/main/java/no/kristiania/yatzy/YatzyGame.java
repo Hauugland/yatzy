@@ -73,8 +73,26 @@ public class YatzyGame {
                 }
             }
 
-            if(Arrays.equals(dice,smallStraight)){
+            if(Arrays.equals(dice, smallStraight)){
                 return 15;
+            }
+        }
+
+        if(category == YatzyCategory.LARGE_STRAIGHT){
+            int temp;
+            int[] largeStraight = {2,3,4,5,6};
+            for (int i = 0; i < dice.length ; i++) {
+                for (int j = i + 1; j < dice.length ; j++) {
+                    if(dice[i] > dice[j]){
+                        temp = dice[i];
+                        dice[i] = dice[j];
+                        dice[j] = temp;
+                    }
+                }
+            }
+
+            if(Arrays.equals(dice, largeStraight)){
+                return 20;
             }
         }
 

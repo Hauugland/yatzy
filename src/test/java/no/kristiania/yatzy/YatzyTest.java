@@ -59,10 +59,15 @@ public class YatzyTest {
 
     @Test
     void shouldScoreLargeStraight(){
-        assertEquals(15, yatzyGame.score(YatzyCategory.LARGE_STRAIGHT, new int[] {3, 5, 6, 4, 2}));
-        assertEquals(15, yatzyGame.score(YatzyCategory.LARGE_STRAIGHT, new int[] {4, 3, 2, 5, 6}));
+        assertEquals(20, yatzyGame.score(YatzyCategory.LARGE_STRAIGHT, new int[] {3, 5, 6, 4, 2}));
+        assertEquals(20, yatzyGame.score(YatzyCategory.LARGE_STRAIGHT, new int[] {4, 3, 2, 5, 6}));
     }
 
+    @Test
+    void shouldScoreFullHouse(){
+        assertEquals(19, yatzyGame.score(YatzyCategory.FULL_HOUSE, new int[] {3, 5, 3, 3, 5}));
+        assertEquals(20, yatzyGame.score(YatzyCategory.FULL_HOUSE, new int[] {6, 2, 2, 2, 6}));
+    }
 
 
 
