@@ -4,19 +4,13 @@ public class YatzyGame {
 
     public int score(YatzyCategory category, int[] dice) {
         int result = 0;
+
+        int[] frequencies = new int[7];
         for (int die : dice) {
-            if(die == 1 && category == YatzyCategory.ONES){
-                result += die;
-            }else if(die == 2 && category == YatzyCategory.TWOS ){
-                result += die;
-            }
+            frequencies[die]++;
         }
 
         if(category == YatzyCategory.PAIR){ //Trenger hjelp
-            int[] frequencies = new int[7];
-            for (int die : dice) {
-                frequencies[die]++;
-            }
 
             for(int value = frequencies.length - 1; value >= 0; value--){
                 if(frequencies[value] == 2){
@@ -25,6 +19,25 @@ public class YatzyGame {
             }
 
         }
+
+        if(category == YatzyCategory.THREE_OF_A_KIND){ //Trenger hjelp
+
+            for(int value = frequencies.length - 1; value >= 0; value--){
+                if(frequencies[value] == 3){
+                    return value * 3;
+                }
+            }
+
+        }
+
+        if(category == YatzyCategory.ONES){
+            return frequencies[1];
+        }
+
+        if(category == YatzyCategory.TWOS ){
+            return frequencies[2] * 2;
+        }
+
         return result;
     }
 }
