@@ -20,7 +20,26 @@ public class YatzyGame {
 
         }
 
+        if(category == YatzyCategory.TWO_PAIRS){ //Egenlaget
+
+            for(int value = frequencies.length - 1; value >= 0; value--){
+                if(frequencies[value] == 2){
+                    result += value * 2;
+                }
+            }
+        }
+
         if(category == YatzyCategory.THREE_OF_A_KIND){ //Trenger hjelp
+
+            for(int value = frequencies.length - 1; value >= 0; value--){
+                if(frequencies[value] == 3){
+                    return value * 3;
+                }
+            }
+
+        }
+
+        if(category == YatzyCategory.FOUR_OF_A_KIND){ //Trenger hjelp
 
             for(int value = frequencies.length - 1; value >= 0; value--){
                 if(frequencies[value] == 3){

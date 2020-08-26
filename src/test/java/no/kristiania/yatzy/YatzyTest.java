@@ -28,10 +28,26 @@ public class YatzyTest {
     }
 
     @Test
+    void shouldScoreTwoPairs(){
+        assertEquals(14, yatzyGame.score(YatzyCategory.TWO_PAIRS, new int[] {1, 1, 6, 6, 2}));
+        assertEquals(22, yatzyGame.score(YatzyCategory.TWO_PAIRS, new int[] {5, 5, 6, 6, 2}));
+    }
+
+    @Test
     void shouldScoreThreeOfAKind(){
         assertEquals(12, yatzyGame.score(YatzyCategory.THREE_OF_A_KIND, new int[] {4, 4, 6, 4, 2}));
         assertEquals(18, yatzyGame.score(YatzyCategory.THREE_OF_A_KIND, new int[] {4, 6, 6, 4, 6}));
     }
+
+    @Test
+    void shouldScoreFourOfAKind(){
+        assertEquals(12, yatzyGame.score(YatzyCategory.FOUR_OF_A_KIND, new int[] {3, 3, 6, 3, 3}));
+        assertEquals(20, yatzyGame.score(YatzyCategory.FOUR_OF_A_KIND, new int[] {5, 5, 6, 5, 5}));
+    }
+
+
+
+
 
 
 
