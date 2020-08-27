@@ -1,7 +1,5 @@
 package no.kristiania.yatzy;
 
-import java.util.Arrays;
-
 public class YatzyGame {
 
     public int score(YatzyCategory category, int[] dice) {
@@ -10,6 +8,30 @@ public class YatzyGame {
         int[] frequencies = new int[7];
         for (int die : dice) {
             frequencies[die]++;
+        }
+
+        if(category == YatzyCategory.ONES){
+            return frequencies[1];
+        }
+
+        if(category == YatzyCategory.TWOS ){
+            return frequencies[2] * 2;
+        }
+
+        if(category == YatzyCategory.THREES){
+            return frequencies[3] * 3;
+        }
+
+        if(category == YatzyCategory.FOURS){
+            return  frequencies[4] * 4;
+        }
+
+        if(category == YatzyCategory.FIVES){
+            return  frequencies[5] * 5;
+        }
+
+        if(category == YatzyCategory.SIXES){
+            return  frequencies[6] * 6;
         }
 
         if(category == YatzyCategory.PAIR){ //Trenger hjelp
@@ -61,37 +83,14 @@ public class YatzyGame {
         }
 
         if(category == YatzyCategory.SMALL_STRAIGHT){
-            int temp;
-            int[] smallStraight = {1,2,3,4,5};
-            for (int i = 0; i < dice.length ; i++) {
-                for (int j = i + 1; j < dice.length ; j++) {
-                    if(dice[i] > dice[j]){
-                        temp = dice[i];
-                        dice[i] = dice[j];
-                        dice[j] = temp;
-                    }
-                }
-            }
 
-            if(Arrays.equals(dice, smallStraight)){
+            if(frequencies[1] >= 1 && frequencies[2] >= 1 && frequencies[3] >= 1 && frequencies[4] >= 1 && frequencies[5] >= 1){
                 return 15;
             }
         }
 
         if(category == YatzyCategory.LARGE_STRAIGHT){
-            int temp;
-            int[] largeStraight = {2,3,4,5,6};
-            for (int i = 0; i < dice.length ; i++) {
-                for (int j = i + 1; j < dice.length ; j++) {
-                    if(dice[i] > dice[j]){
-                        temp = dice[i];
-                        dice[i] = dice[j];
-                        dice[j] = temp;
-                    }
-                }
-            }
-
-            if(Arrays.equals(dice, largeStraight)){
+            if(frequencies[2] >= 1 && frequencies[3] >= 1 && frequencies[4] >= 1 && frequencies[5] >= 1 && frequencies[6] >= 1){
                 return 20;
             }
         }
@@ -111,22 +110,12 @@ public class YatzyGame {
         }
 
         if(category == YatzyCategory.CHANCE){
-            for (int i = 0; i < dice.length; i++) {
-                result += dice[i];
+            for (int die : dice) {
+                result += die;
             }
         }
 
-        if(category == YatzyCategory.ONES){
-            return frequencies[1];
-        }
 
-        if(category == YatzyCategory.TWOS ){
-            return frequencies[2] * 2;
-        }
-
-        if(category == YatzyCategory.THREES){
-
-        }
 
         return result;
     }
